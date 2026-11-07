@@ -110,8 +110,7 @@ left, right = st.columns([5, 1])
 with left:
     st.markdown(
         '<h1 class="lky-title">Think Like Lee Kuan Yew</h1>'
-        '<p class="lky-sub">AI simulation based on 1964–1968 speeches and book excerpts. '
-        "Not his actual words.</p>",
+        '<p class="lky-sub">AI simulation based on 1964–1968 speeches and book excerpts. ',
         unsafe_allow_html=True,
     )
 with right:
