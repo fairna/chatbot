@@ -25,8 +25,8 @@ API_KEY = (
     or os.getenv("LLM_API_KEY")
 )
 
-MAIN_MODEL = os.getenv("LLM_MODEL", "gemini-2.5-flash")
-FAST_MODEL = os.getenv("LLM_FAST_MODEL", "gemini-2.5-flash-lite")
+MAIN_MODEL = os.getenv("LLM_MODEL", "gemini-3.5-flash")
+FAST_MODEL = os.getenv("LLM_FAST_MODEL", "gemini-3.5-flash-lite")
 REASONING = os.getenv("LLM_REASONING_EFFORT", "none")
 MIN_INTERVAL = float(os.getenv("LLM_MIN_INTERVAL", "0"))
 TIMEOUT = float(os.getenv("LLM_TIMEOUT", "45"))
