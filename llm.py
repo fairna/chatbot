@@ -5,6 +5,7 @@ LLM_REASONING_EFFORT ("none" disables Gemini 2.5 thinking; set to "" to omit),
 LLM_TIMEOUT (seconds per request, default 45), LKY_DEBUG=0 to silence timing logs."""
 
 import os
+import streamlit as st
 import time
 from openai import (
     OpenAI,
@@ -18,10 +19,12 @@ BASE_URL = os.getenv(
     "LLM_BASE_URL", "https://generativelanguage.googleapis.com/v1beta/openai/"
 )
 API_KEY = (
-    os.getenv("LLM_API_KEY")
+    st.secrets.get("GEMINI_API_KEY")
+    or st.secrets.get("LLM_API_KEY")
     or os.getenv("GEMINI_API_KEY")
-    or os.getenv("GOOGLE_API_KEY")
+    or os.getenv("LLM_API_KEY")
 )
+
 MAIN_MODEL = os.getenv("LLM_MODEL", "gemini-2.5-flash")
 FAST_MODEL = os.getenv("LLM_FAST_MODEL", "gemini-2.5-flash-lite")
 REASONING = os.getenv("LLM_REASONING_EFFORT", "none")
