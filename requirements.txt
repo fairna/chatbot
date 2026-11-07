@@ -1,1 +1,11 @@
+openai
 chromadb
+sentence-transformers
+rank-bm25
+pypdf
+langchain-text-splitters
+streamlit
+pandas
+ragas
+langchain-openai
+langchain-huggingface
