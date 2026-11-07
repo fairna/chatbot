@@ -18,6 +18,22 @@ Compare configurations (edit eval_questions.csv first):
 Windows (cmd): set LKY_HYBRID=0 && set LKY_RERANK=0 && set LKY_TAG=baseline && python eval.py
 Results: results_<tag>.csv per run.
 
+Evaluation results
+Setup: Gemini 3.5 Flash (temperature 0.3), hybrid retrieval + cross-encoder rerank, top-6 context,
+11 questions (10 factual with an expected source, 1 out-of-scope).
+
+| Metric                 | Score |
+|------------------------|-------|
+| Recall@3 (doc-level)   | 1.00  |
+| Recall@5 (doc-level)   | 1.00  |
+| MRR                    | 0.90  |
+| Fake quotes / question | 0.09  |
+
+- Recall@k and MRR are computed at document level and skip questions without an expected source
+  (the out-of-scope question).
+- Fake quotes: quoted passages (6+ words) in an answer that do not appear verbatim in the cleaned
+  corpus (data_clean/). Lower is better; 0.09 is the average count per question.
+
 LLM: Google Gemini through its OpenAI-compatible endpoint (llm.py).
 Change models with LLM_MODEL / LLM_FAST_MODEL. Any OpenAI-compatible provider works
 (Groq, OpenRouter, Ollama) by setting LLM_BASE_URL, LLM_API_KEY, LLM_MODEL.
